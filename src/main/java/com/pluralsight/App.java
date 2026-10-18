@@ -8,6 +8,7 @@ public class App {
     public static void main(String[] args) {
 
         double additionalCost = 0;
+        double underageSubcharge = 0;
 
         Scanner input = new Scanner(System.in);
 
@@ -37,7 +38,6 @@ public class App {
         //input.nextInt();
 
         double basicCarRental = daysRenting * 29.99;
-        double underageSubcharge = (basicCarRental) * (1 - .30);
         double tollTagCharge = daysRenting * 3.95;
         double roadsideCharge = daysRenting * 3.95;
         double gpsCharge = daysRenting * 2.95;
@@ -53,6 +53,17 @@ public class App {
         switch (decisionGPS){
             case 1 -> additionalCost += gpsCharge;
         }
-        System.out.println(additionalCost);
+
+        if (userAge < 25){
+            underageSubcharge = basicCarRental * (1 - .30);
+        }
+
+        double totalCost = basicCarRental + additionalCost + underageSubcharge;
+
+        System.out.println("\nBasic Rental: " + basicCarRental + "\n" +
+                "Additional Cost: " + additionalCost + "\n"
+                + "Underage Subcharge (30%): " + underageSubcharge + "\n"
+                + "---------------------------\n"
+                + "Total Cost: " + totalCost);
     }
 }
