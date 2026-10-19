@@ -54,10 +54,10 @@ public class App {
 
         double totalCost = basicCarRental + additionalCost + underageSubcharge;
 
-        System.out.print("\nBasic Rental: " + basicCarRental + "\n" +
+        System.out.print("\nBasic Rental: " + String.format("%.2f", basicCarRental) + "\n" +
                 "Additional Cost: " + additionalCost + "\n"
-                + "Underage Sub-charge (30%): " + underageSubcharge + "\n"
+                + "Underage Sub-charge (30%): " + String.format("%.2f", underageSubcharge) + "\n"
                 + "---------------------------\n"
-                + "Total Cost: " + totalCost);
+                + "Total Cost: " + String.format("%.2f", totalCost));
     }
 }
